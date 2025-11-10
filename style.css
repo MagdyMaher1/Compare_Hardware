@@ -10,8 +10,8 @@
 }
 
 body {
-  background-color: #111111;
-  color: #fff;
+  background-color: #0e0e0ec4;
+  color: #000000b7;
   line-height: 1.8;
   font-size: 1.15rem;
 }
@@ -22,7 +22,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 28px 58px;
-  background-color: rgba(0,0,0,0.95);
+  background-color: rgba(0,0,0,0.7);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -50,13 +50,13 @@ body {
 }
 
 .header nav a {
-  color: #fff;
+  color: #00d9ff;
   text-decoration: none;
   margin-left: 120px; /* زيادة المسافة بين الروابط */
   font-weight: 600;
   position: relative;
   transition: color 0.3s ease;
-  text-shadow: 0 0 6px rgba(0,217,255,0.4);
+  text-shadow: 0 0 6px rgba(0,217,255,0.6);
 }
 
 .header nav a::after {
@@ -114,7 +114,7 @@ body {
 
 .hero-text p {
   font-size: 1.4rem;
-  color: #ccc;
+  color: #00d9ff;
   text-shadow: 0 0 6px rgba(0,217,255,0.5);
 }
 
@@ -135,7 +135,7 @@ body {
 
 .about p {
   font-size: 1.3rem;
-  color: #eee;
+  color: #00d9ff;
   text-shadow: 0 0 4px rgba(0,217,255,0.3);
 }
 
@@ -326,7 +326,7 @@ body {
   font-weight: 600;
   border: 2px solid #00d9ff;
   border-radius: 20px;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgb(0, 0, 0);
   transition: all 0.4s ease;
   box-shadow: 0 0 8px rgba(0,217,255,0.5);
   opacity: 0;
@@ -360,7 +360,7 @@ footer {
   background-color: #000;
   border-top: 1px solid #222;
   font-size: 1rem;
-  color: #888;
+  color: #444444;
   text-shadow: 0 0 6px rgba(0,217,255,0.3);
 }
 
