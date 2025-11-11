@@ -10,10 +10,11 @@
 }
 
 body {
-  background-color: #0e0e0ec4;
-  color: #000000b7;
+  background-color: #141414;
+  color: #141414;
   line-height: 1.8;
   font-size: 1.15rem;
+  transition: background-color 0.4s, color 0.4s;
 }
 
 /* ===================== Header ===================== */
@@ -22,11 +23,12 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 28px 58px;
-  background-color: rgba(0,0,0,0.7);
+  background-color: #141414;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  box-shadow: 0 2px 10px #141414;
+  flex-wrap: wrap;
 }
 
 .header .logo {
@@ -49,17 +51,26 @@ body {
   text-shadow: 0 0 8px rgba(0,217,255,0.6);
 }
 
-.header nav a {
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 100px; /* مسافة بين الروابط */
+  flex-wrap: wrap;
+}
+
+.header nav a, 
+.header .dropbtn {
   color: #00d9ff;
   text-decoration: none;
-  margin-left: 120px; /* زيادة المسافة بين الروابط */
   font-weight: 600;
   position: relative;
   transition: color 0.3s ease;
   text-shadow: 0 0 6px rgba(0,217,255,0.6);
+  cursor: pointer;
 }
 
-.header nav a::after {
+.header nav a::after,
+.header .dropbtn::after {
   content: "";
   position: absolute;
   width: 0;
@@ -70,12 +81,98 @@ body {
   transition: width 0.3s;
 }
 
-.header nav a:hover {
-  color: #00d9ff;
+.header nav a:hover::after,
+.header .dropbtn:hover::after {
+  width: 100%;
 }
 
-.header nav a:hover::after {
-  width: 100%;
+/* ===================== Dropdown ===================== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: rgba(0,0,0,0.9);
+  min-width: 190px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,217,255,0.3);
+  z-index: 10;
+}
+
+.dropdown-content a {
+  color: #00d9ff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-weight: 500;
+}
+
+.dropdown-content a img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(0,217,255,0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===================== زر الوضع الليلي والفاتح ===================== */
+.mode-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #00d9ff;
+  text-shadow: 0 0 6px rgba(0,217,255,0.6);
+  transition: transform 0.3s;
+}
+
+.mode-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Light Mode */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: #000;
+}
+
+body.light-mode .header {
+  background-color: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+body.light-mode .header h1 {
+  color: #007ca1;
+  text-shadow: none;
+}
+
+body.light-mode nav a,
+body.light-mode .dropbtn {
+  color: #007ca1;
+  text-shadow: none;
+}
+
+body.light-mode .dropdown-content {
+  background-color: #fff;
+}
+
+body.light-mode .dropdown-content a {
+  color: #007ca1;
+}
+
+body.light-mode .dropdown-content a:hover {
+  background-color: rgba(0,124,161,0.1);
 }
 
 /* ===================== Hero ===================== */
@@ -170,7 +267,7 @@ body {
   box-shadow: 0 12px 30px rgba(0,217,255,0.6);
 }
 
-/* ===================== Projects Section – فيديوهات ===================== */
+/* ===================== Projects Section ===================== */
 .project-item {
   display: flex;
   flex-direction: column;
@@ -185,7 +282,7 @@ body {
   border: 2px solid #00d9ff;
   padding: 8px 16px;
   border-radius: 25px;
-  transition: all 0.s ease;
+  transition: all 0.3s ease;
   text-shadow: 0 0 6px rgba(0,217,255,0.5);
 }
 
@@ -278,7 +375,7 @@ body {
   box-shadow: 0 12px 30px rgba(0,217,255,0.7);
 }
 
-/* ===================== Gallery / Stats Lightbox ===================== */
+/* ===================== Lightbox ===================== */
 .gallery img, .stats .gallery img, .sponsor-logos img {
   cursor: pointer;
   transition: all 0.3s ease;
@@ -306,7 +403,8 @@ body {
 .lightbox:target {
   display: flex;
 }
-/* ===================== Social Links – Boxes with animation ===================== */
+
+/* ===================== Social Links ===================== */
 .social-links {
   display: flex;
   justify-content: center;
@@ -358,7 +456,7 @@ footer {
   text-align: center;
   padding: 36px;
   background-color: #000;
-  border-top: 1px solid #222;
+  border-top: 1px solid #141414;
   font-size: 1rem;
   color: #444444;
   text-shadow: 0 0 6px rgba(0,217,255,0.3);
@@ -391,4 +489,5 @@ footer {
   .hero-text p { font-size: 1.2rem; }
   .gallery { grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
   .stats { gap: 25px; }
+  .header nav { gap: 20px; justify-content: center; margin-top: 10px; }
 }
